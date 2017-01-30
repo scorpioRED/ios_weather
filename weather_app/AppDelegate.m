@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LocationManager.h"
+#import "DateFormater.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,39 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSDictionary* location = [[LocationManager shartedManager] getCurrentLocation];
     NSLog(@"%@",location);
+    
+    
+    NSDate* dateT = [[NSDate alloc]init];
+    
+    NSString* dt = [DateFormater DateToFormat:dateT FormatTo:@"dd.mm.yyyy"];
+    
+    NSLog(@"date is %@", dt);
+
+    NSString* epochTime = @"1485786900";
+    
+    NSString* normalTime = [DateFormater ConvertFromEpoch:epochTime toFormat:@"EEEE"];
+    
+    NSLog(@"normal time is - %@",normalTime);
+    
+     NSLog(@"date is %@", dt);
+//
+//    NSTimeInterval seconds = [epochTime doubleValue];
+//
+//    
+//    NSDate *epochNSDate = [[NSDate alloc] initWithTimeIntervalSince1970:seconds];
+//    NSLog (@"Epoch time %@ equates to UTC %@", epochTime, epochNSDate);
+//
+//
+//    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+//    
+//    [format setDateFormat:@"EEEE"];
+//    
+//    NSLog(@"My date with out format = %@",epochNSDate);
+//    NSString *dateStr = [format stringFromDate:epochNSDate];
+//    
+//    //date = [format dateFromString:[format stringFromDate:date]];
+//    NSLog(@"My date is = %@",dateStr);
+    
     // Override point for customization after application launch.
     return YES;
 }

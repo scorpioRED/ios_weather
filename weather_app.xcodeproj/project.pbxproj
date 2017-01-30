@@ -21,6 +21,7 @@
 		81A660371E26A5B5007F1CD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81A660351E26A5B5007F1CD9 /* LaunchScreen.storyboard */; };
 		81A660401E26A7F3007F1CD9 /* SignInControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A6603F1E26A7F3007F1CD9 /* SignInControllerViewController.m */; };
 		81A660431E26B180007F1CD9 /* SingUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A660421E26B180007F1CD9 /* SingUpController.m */; };
+		81C466D21E3F94C000A3A355 /* DateFormater.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C466D11E3F94C000A3A355 /* DateFormater.m */; };
 		81FF531D1E3E540400424915 /* ForcastCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FF531C1E3E540400424915 /* ForcastCollectionViewController.m */; };
 		81FF53291E3E6E1C00424915 /* ForcastCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FF53281E3E6E1C00424915 /* ForcastCollectionViewCell.m */; };
 		8E4292F3F18523153E28C1AE /* libPods-weather_app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D4626C4AC386D0BB41D1D3A /* libPods-weather_app.a */; };
@@ -54,6 +55,8 @@
 		81A6603F1E26A7F3007F1CD9 /* SignInControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInControllerViewController.m; sourceTree = "<group>"; };
 		81A660411E26B180007F1CD9 /* SingUpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingUpController.h; sourceTree = "<group>"; };
 		81A660421E26B180007F1CD9 /* SingUpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingUpController.m; sourceTree = "<group>"; };
+		81C466D01E3F94C000A3A355 /* DateFormater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateFormater.h; sourceTree = "<group>"; };
+		81C466D11E3F94C000A3A355 /* DateFormater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateFormater.m; sourceTree = "<group>"; };
 		81FF531B1E3E540400424915 /* ForcastCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForcastCollectionViewController.h; sourceTree = "<group>"; };
 		81FF531C1E3E540400424915 /* ForcastCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForcastCollectionViewController.m; sourceTree = "<group>"; };
 		81FF53271E3E6E1C00424915 /* ForcastCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForcastCollectionViewCell.h; sourceTree = "<group>"; };
@@ -139,6 +142,8 @@
 				818D95891E3E86A300D0D00B /* WeatherClass.m */,
 				818D958B1E3E8B5600D0D00B /* LocationManager.h */,
 				818D958C1E3E8B5600D0D00B /* LocationManager.m */,
+				81C466D01E3F94C000A3A355 /* DateFormater.h */,
+				81C466D11E3F94C000A3A355 /* DateFormater.m */,
 			);
 			path = weather_app;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 				81A660401E26A7F3007F1CD9 /* SignInControllerViewController.m in Sources */,
 				81A660321E26A5B5007F1CD9 /* weather_app.xcdatamodeld in Sources */,
 				81FF531D1E3E540400424915 /* ForcastCollectionViewController.m in Sources */,
+				81C466D21E3F94C000A3A355 /* DateFormater.m in Sources */,
 				81A6602C1E26A5B5007F1CD9 /* ViewController.m in Sources */,
 				81A660431E26B180007F1CD9 /* SingUpController.m in Sources */,
 				81FF53291E3E6E1C00424915 /* ForcastCollectionViewCell.m in Sources */,

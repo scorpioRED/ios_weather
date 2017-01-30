@@ -40,7 +40,7 @@
         weatherData = result;
         NSLog(@"weather in block %@",weatherData);
         _cityName.text = [NSString stringWithFormat:@"%@",weatherData[@"name"]];
-        _currentCityTemp.text =[NSString stringWithFormat:@"%@",weatherData[@"main"][@"temp"]];
+        _currentCityTemp.text = [NSString stringWithFormat:@"%@",weatherData[@"main"][@"temp"]];
         _humidity.text = [NSString stringWithFormat:@"%@",weatherData[@"main"][@"humidity"]];
         _presure.text = [NSString stringWithFormat:@"%@",weatherData[@"main"][@"pressure"]];
         _wind.text = [NSString stringWithFormat:@"%@",weatherData[@"wind"][@"speed"]];

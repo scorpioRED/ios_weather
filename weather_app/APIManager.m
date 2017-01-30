@@ -54,6 +54,8 @@ static NSString *APPID = @"709b026b19ba8645e4a2ebe367e730c3";
     [manager GET:@"http://api.openweathermap.org/data/2.5/weather"
       parameters:param
          success:^(NSURLSessionTask *operation, id responseObject) {
+             
+             NSLog(@"date %@",responseObject[@"dt"]);
              //             NSLog(@"JSON: %@", responseObject);
              
              //             NSLog(@"temp is  - %@",responseObject[@"main"]);
