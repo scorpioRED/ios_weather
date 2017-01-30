@@ -35,7 +35,7 @@
     
     APIManager* weatherManager = [[APIManager alloc]init];
     
-    [weatherManager getForcast:requestOptions onSuccess:^(NSDictionary *result) {
+    [weatherManager getWeather:requestOptions onSuccess:^(NSDictionary *result) {
         NSLog(@"temp is %@", result[@"main"][@"temp"]);
         weatherData = result;
         NSLog(@"weather in block %@",weatherData);

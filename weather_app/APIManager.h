@@ -13,9 +13,9 @@
 + (instancetype)shartedManager;
 
 
-- (NSDictionary*) getWeather : (NSDictionary*) options;
+//- (NSDictionary*) getWeather : (NSDictionary*) options;
 
--(void) getForcast : (NSDictionary*)options
+-(void) getWeather : (NSDictionary*)options
           onSuccess:(void(^)(NSDictionary* result))success
           onFailure:(void(^)(NSError *error, NSInteger stausCode))failure;
 

@@ -26,7 +26,7 @@ static NSString *APPID = @"709b026b19ba8645e4a2ebe367e730c3";
 
 
 
--(void) getForcast : (NSDictionary*)options
+-(void) getWeather : (NSDictionary*)options
           onSuccess:(void(^)(NSDictionary* result))success
           onFailure:(void(^)(NSError *error, NSInteger stausCode))failure
 {
