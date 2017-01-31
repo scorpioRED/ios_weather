@@ -8,10 +8,14 @@
 
 #import "ForcastCollectionViewController.h"
 #import "ForcastCollectionViewCell.h"
+#import "APIManager.h"
+#import "DateFormater.h"
+#import "LocationManager.h"
 
 @interface ForcastCollectionViewController () {
     NSArray *photos;
-    NSArray *days;
+    NSMutableArray *days;
+    
 }
 
 @end
@@ -19,6 +23,7 @@
 @implementation ForcastCollectionViewController
 
 static NSString * const reuseIdentifier = @"Cell";
+static NSString * const URL = @"forecast/daily";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,8 +34,10 @@ static NSString * const reuseIdentifier = @"Cell";
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
+    [self fetcForcast];
     photos = @[@"cloudsSun",@"cloudsRain",@"clouds"];
-    days = @[@"Sunday",@"Mond",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",@"Saturday"];
+//    days = [[NSMutableArray alloc]init];
+    days = [NSMutableArray arrayWithObjects:@"0",@"0",@"0",@"0",@"0",@"0",@"0", nil];
     // Do any additional setup after loading the view.
 }
 
@@ -49,6 +56,39 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 */
 
+
+#pragma mark -- HTTP Request --
+
+-(void)fetcForcast {
+
+    NSDictionary* location = [[LocationManager shartedManager] getCurrentLocation];
+    NSMutableDictionary *requestOptions = [[NSMutableDictionary alloc]initWithDictionary:location];
+    requestOptions[@"cnt"] = @"7";
+    
+    [[APIManager shartedManager]getWeather:requestOptions url:URL onSuccess:^(NSDictionary *result) {
+//        NSLog(@"----- 7 days result is %@",result);
+//        NSLog(@"+++ 1 %@",result[@"list"][6][@"pressure"]);
+        NSLog(@"+++ count %d",[result[@"list"] count]);
+        for (int i = 0; i < [result[@"list"] count]; i++) {
+            NSLog(@"^^^^^^ DAY  %d - %@",i,result[@"list"][i]);
+            [days replaceObjectAtIndex:i withObject:result[@"list"][i]];
+        };
+//        for (NSDictionary* day in result[@"list"]) {
+//            NSLog(@"^^^^^^ DAY humidity %@",day[@"humidity"]);
+//            
+////            [days addObject:day];
+//            
+//        };
+        
+        [self.collectionView reloadData];
+        
+    } onFailure:^(NSError *error, NSInteger stausCode) {
+        NSLog(@" ------ 7 days ERRROOOO!! %@ %ld", error, (long)stausCode);
+    }];
+    
+}
+
+
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -64,11 +104,27 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    NSLog(@" --- RENDER collection view");
+    
 //    static NSString* Cellid = @"cellDay";
     
     ForcastCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellDay" forIndexPath:indexPath];
     cell.imgForcast.image = [UIImage imageNamed:@"cloudsSun"];
-    cell.dayForcast.text = [days objectAtIndex:indexPath.row];
+    
+    if ([[days objectAtIndex:indexPath.row] isKindOfClass:[NSDictionary class]]) {
+//        NSLog(@" ++++++++++++++++++++++++IS OBJECCCTTT");
+        NSString *day =[DateFormater ConvertFromEpoch:[days objectAtIndex:indexPath.row][@"dt"] toFormat:@"EEEE"];
+//        NSLog(@"TMMP --> number is  %@",day);
+        cell.maxTemp.text = [NSString stringWithFormat:@"%@",[days objectAtIndex:indexPath.row][@"temp"][@"max"]];
+        cell.minTemp.text = [NSString stringWithFormat:@"%@",[days objectAtIndex:indexPath.row][@"temp"][@"min"]];
+        cell.dayForcast.text = [NSString stringWithFormat:@"%@",day];
+        
+        
+        
+    }else{
+        cell.dayForcast.text = @"day";
+    }
+    
     
     
     return cell;

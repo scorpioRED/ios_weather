@@ -24,10 +24,9 @@
 
 +(NSString*)ConvertFromEpoch:(id)epochTime toFormat:(NSString*)format{
 
-    NSString* epoch = [NSString stringWithFormat:@"@%",epochTime];
-    
+    NSString* epoch = [NSString stringWithFormat:@"%@",epochTime];
+
     NSTimeInterval seconds = [epoch doubleValue];
-    
     
     NSDate *epochNSDate = [[NSDate alloc] initWithTimeIntervalSince1970:seconds];
 

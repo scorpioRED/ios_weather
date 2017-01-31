@@ -16,6 +16,7 @@
 //- (NSDictionary*) getWeather : (NSDictionary*) options;
 
 -(void) getWeather : (NSDictionary*)options
+          url: (NSString*)url
           onSuccess:(void(^)(NSDictionary* result))success
           onFailure:(void(^)(NSError *error, NSInteger stausCode))failure;
 

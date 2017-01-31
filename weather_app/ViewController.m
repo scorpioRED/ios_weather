@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "LocationManager.h"
 #import "APIManager.h"
+#import "DateFormater.h"
 
 @interface ViewController ()
 
@@ -35,10 +36,11 @@
     
     APIManager* weatherManager = [[APIManager alloc]init];
     
-    [weatherManager getWeather:requestOptions onSuccess:^(NSDictionary *result) {
+    [weatherManager getWeather:requestOptions url:@"weather" onSuccess:^(NSDictionary *result) {
         NSLog(@"temp is %@", result[@"main"][@"temp"]);
         weatherData = result;
-        NSLog(@"weather in block %@",weatherData);
+//        NSLog(@"weather in block %@",weatherData);
+        _dateLabel.text = [DateFormater ConvertFromEpoch:weatherData[@"dt"] toFormat:@"DD.MM.YYYY"];
         _cityName.text = [NSString stringWithFormat:@"%@",weatherData[@"name"]];
         _currentCityTemp.text = [NSString stringWithFormat:@"%@",weatherData[@"main"][@"temp"]];
         _humidity.text = [NSString stringWithFormat:@"%@",weatherData[@"main"][@"humidity"]];
@@ -46,6 +48,7 @@
         _wind.text = [NSString stringWithFormat:@"%@",weatherData[@"wind"][@"speed"]];
         _maxTemp.text = [NSString stringWithFormat:@"%@",weatherData[@"main"][@"temp_max"]];
         _minTemp.text = [NSString stringWithFormat:@"%@",weatherData[@"main"][@"temp_min"]];
+        _todayLabel.text = [DateFormater ConvertFromEpoch:weatherData[@"dt"] toFormat:@"EEEE"];
         
         
     } onFailure:^(NSError *error, NSInteger stausCode) {

@@ -22,36 +22,31 @@
     NSLog(@"%@",location);
     
     
-    NSDate* dateT = [[NSDate alloc]init];
     
-    NSString* dt = [DateFormater DateToFormat:dateT FormatTo:@"dd.mm.yyyy"];
-    
-    NSLog(@"date is %@", dt);
-
-    NSString* epochTime = @"1485786900";
-    
-    NSString* normalTime = [DateFormater ConvertFromEpoch:epochTime toFormat:@"EEEE"];
-    
+    NSString *epochTime = @"1485799200";   
+    NSString* normalTime = [DateFormater ConvertFromEpoch:epochTime toFormat:@"EEEE"]; //EEEE
     NSLog(@"normal time is - %@",normalTime);
     
-     NSLog(@"date is %@", dt);
-//
-//    NSTimeInterval seconds = [epochTime doubleValue];
-//
-//    
-//    NSDate *epochNSDate = [[NSDate alloc] initWithTimeIntervalSince1970:seconds];
-//    NSLog (@"Epoch time %@ equates to UTC %@", epochTime, epochNSDate);
-//
-//
-//    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-//    
-//    [format setDateFormat:@"EEEE"];
-//    
-//    NSLog(@"My date with out format = %@",epochNSDate);
-//    NSString *dateStr = [format stringFromDate:epochNSDate];
-//    
-//    //date = [format dateFromString:[format stringFromDate:date]];
-//    NSLog(@"My date is = %@",dateStr);
+
+
+    
+//    NSMutableArray *arr;
+    
+//    arr = @[@"one",@"two",@"three"];
+    
+//    NSLog(@"ress - %@", [arr objectAtIndex:indexPath]) ;
+    
+    
+    
+    NSDictionary *tmp = [NSDictionary dictionaryWithObjectsAndKeys:@"aa",@"first",@"bb",@"second", nil];
+    
+    NSMutableDictionary *aaa = [[NSMutableDictionary alloc]initWithDictionary:tmp];
+    
+    
+    
+    aaa[@"thr"] = @"cc";
+    
+    NSLog(@"here is dictionary %@",aaa);
     
     // Override point for customization after application launch.
     return YES;

@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *sunset;
 @property (weak, nonatomic) IBOutlet UILabel *maxTemp;
 @property (weak, nonatomic) IBOutlet UILabel *minTemp;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *todayLabel;
 
 - (IBAction)logOutBtn:(id)sender;
 

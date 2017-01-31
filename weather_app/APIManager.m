@@ -27,6 +27,7 @@ static NSString *APPID = @"709b026b19ba8645e4a2ebe367e730c3";
 
 
 -(void) getWeather : (NSDictionary*)options
+                url:(NSString*)url
           onSuccess:(void(^)(NSDictionary* result))success
           onFailure:(void(^)(NSError *error, NSInteger stausCode))failure
 {
@@ -48,14 +49,14 @@ static NSString *APPID = @"709b026b19ba8645e4a2ebe367e730c3";
         
     }
     
-    
+    NSString* requestURL =[NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/%@", url]; // weather
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:@"http://api.openweathermap.org/data/2.5/weather"
+    [manager GET:requestURL
       parameters:param
          success:^(NSURLSessionTask *operation, id responseObject) {
              
-             NSLog(@"date %@",responseObject[@"dt"]);
+//             NSLog(@"date %@",responseObject[@"dt"]);
              //             NSLog(@"JSON: %@", responseObject);
              
              //             NSLog(@"temp is  - %@",responseObject[@"main"]);
