@@ -41,7 +41,7 @@
 */
 
 - (IBAction)signUpBtn:(id)sender {
-    [self performSegueWithIdentifier:@"WeatherMainScreen" sender:self];
+    [self performSegueWithIdentifier:@"fromSingUpToMainView" sender:self];
 }
 
 - (IBAction)signInBtn:(id)sender {

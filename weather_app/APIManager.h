@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WeatherClass.h"
+#import "City.h"
 
 @interface APIManager : NSObject
 
@@ -17,9 +19,15 @@
 
 -(void) getWeather : (NSDictionary*)options
           url: (NSString*)url
-          onSuccess:(void(^)(NSDictionary* result))success
+          onSuccess:(void(^)(City* city))success
           onFailure:(void(^)(NSError *error, NSInteger stausCode))failure;
 
+
+
+-(void) getForcast : (NSDictionary*)options
+                url:(NSString*)url
+          onSuccess:(void(^)(NSDictionary* forcast))success
+          onFailure:(void(^)(NSError *error, NSInteger stausCode))failure;
 
 
 @end

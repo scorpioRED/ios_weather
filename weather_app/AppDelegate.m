@@ -18,13 +18,21 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    
+    UIPageControl *pageControl = [UIPageControl appearance];
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+    pageControl.backgroundColor = [UIColor whiteColor];
+    
+    
     NSDictionary* location = [[LocationManager shartedManager] getCurrentLocation];
     NSLog(@"%@",location);
     
     
     
-    NSString *epochTime = @"1485799200";   
-    NSString* normalTime = [DateFormater ConvertFromEpoch:epochTime toFormat:@"EEEE"]; //EEEE
+    NSString *epochTime = @"1487502840";
+    NSString* normalTime = [DateFormater ConvertFromEpoch:epochTime toFormat:@"dd.MM.yyyy"]; //EEEE
     NSLog(@"normal time is - %@",normalTime);
     
 
