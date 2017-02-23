@@ -10,7 +10,9 @@
 
 @interface TableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *timeLabe;
+
 @property (weak, nonatomic) IBOutlet UILabel *cityNameLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *cityTempLabel;
 
 @end

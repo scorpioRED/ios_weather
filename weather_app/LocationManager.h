@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "LocationClass.h"
 
 @interface LocationManager : NSObject <CLLocationManagerDelegate>
 + (instancetype)shartedManager;

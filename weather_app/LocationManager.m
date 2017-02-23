@@ -8,6 +8,7 @@
 
 #import "LocationManager.h"
 
+
 @implementation LocationManager {
     CLLocationManager *locationManager;
 }
@@ -38,6 +39,7 @@
     
     NSDictionary *location = @{@"lat":[NSString stringWithFormat:@"%f",locationManager.location.coordinate.latitude],@"lon":[NSString stringWithFormat:@"%f",locationManager.location.coordinate.longitude]};
     
+//    LocationClass *location = [[LocationClass alloc]initWithCoordinats:locationManager];
     
     return location;
 }

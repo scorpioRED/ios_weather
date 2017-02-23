@@ -17,6 +17,7 @@
 		8195214B1E5DBD5F008CE00A /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195214A1E5DBD5F008CE00A /* TableViewCell.m */; };
 		8195214E1E5DCCC0008CE00A /* TabelUiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195214D1E5DCCC0008CE00A /* TabelUiViewController.m */; };
 		819521511E5E26B3008CE00A /* DataPassDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 819521501E5E26B3008CE00A /* DataPassDelegate.m */; };
+		819521541E5E39EB008CE00A /* LocationClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 819521531E5E39EB008CE00A /* LocationClass.m */; };
 		81A660261E26A5B5007F1CD9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A660251E26A5B5007F1CD9 /* main.m */; };
 		81A660291E26A5B5007F1CD9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A660281E26A5B5007F1CD9 /* AppDelegate.m */; };
 		81A6602F1E26A5B5007F1CD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81A6602D1E26A5B5007F1CD9 /* Main.storyboard */; };
@@ -52,6 +53,8 @@
 		8195214D1E5DCCC0008CE00A /* TabelUiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabelUiViewController.m; sourceTree = "<group>"; };
 		8195214F1E5E26B3008CE00A /* DataPassDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPassDelegate.h; sourceTree = "<group>"; };
 		819521501E5E26B3008CE00A /* DataPassDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPassDelegate.m; sourceTree = "<group>"; };
+		819521521E5E39EB008CE00A /* LocationClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationClass.h; sourceTree = "<group>"; };
+		819521531E5E39EB008CE00A /* LocationClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationClass.m; sourceTree = "<group>"; };
 		81A660211E26A5B5007F1CD9 /* weather_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weather_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81A660251E26A5B5007F1CD9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		81A660271E26A5B5007F1CD9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -150,6 +153,8 @@
 				818D95891E3E86A300D0D00B /* WeatherClass.m */,
 				8195211C1E58D6E2008CE00A /* City.h */,
 				8195211D1E58D6E2008CE00A /* City.m */,
+				819521521E5E39EB008CE00A /* LocationClass.h */,
+				819521531E5E39EB008CE00A /* LocationClass.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 				818D95841E3E7EAB00D0D00B /* APIManager.m in Sources */,
 				8195214E1E5DCCC0008CE00A /* TabelUiViewController.m in Sources */,
 				81219EFD1E5501C500FE2C21 /* PageContentViewController.m in Sources */,
+				819521541E5E39EB008CE00A /* LocationClass.m in Sources */,
 				81219EFA1E55017D00FE2C21 /* MainViewController.m in Sources */,
 				818D958D1E3E8B5600D0D00B /* LocationManager.m in Sources */,
 			);

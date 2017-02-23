@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LocationManager.h"
 #import "DateFormater.h"
+#import "LocationClass.h"
 
 @interface AppDelegate ()
 

@@ -18,6 +18,9 @@
 
 @protocol DataPassDelegate <NSObject>
 
--(NSArray*) PassData;
+@optional
+-(id) PassData;
+-(NSUInteger) PassIndex ;
+-(void) GetIndex :(NSUInteger) cellIndex;
 
 @end

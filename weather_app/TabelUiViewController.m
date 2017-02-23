@@ -9,9 +9,13 @@
 #import "TabelUiViewController.h"
 #import "TableViewCell.h"
 #import "MainViewController.h"
-#import "DataPassDelegate.h"
 
-@interface TabelUiViewController ()
+#import "City.h"
+#import "DateFormater.h"
+
+@interface TabelUiViewController () {
+    NSUInteger cityIndex;
+}
 
 @end
 
@@ -21,11 +25,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    MainViewController *mainView = [[MainViewController alloc]init];
-    DataPassDelegate* datapass = [[DataPassDelegate alloc]init];
-    datapass.delegate = mainView;
     
-    NSLog(@"Cities is -> %@ ",[mainView PassData]);
+    
     
     self.citesTabel.delegate = self;
     self.citesTabel.dataSource = self;
@@ -37,7 +38,15 @@
 }
 
 
+-(NSUInteger) PassIndex {
+    
+     NSLog(@"CityIndex is - > %ld",(long)cityIndex);
+    return cityIndex;
+}
 
+- (void)GetIndex:(NSUInteger)cellIndex {
+
+}
 
 #pragma mark - Table view data source
 
@@ -48,7 +57,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 5;
+    return [self.cities count];
 }
 
 
@@ -56,15 +65,30 @@
     
     TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TableCitiesCell" forIndexPath:indexPath];
     
-    cell.timeLabe.text = @"15:44";
-    cell.cityNameLabel.text = @"Lviv";
-    cell.cityTempLabel.text = @"10";
+    City *city = [[City alloc]init];
     
-    // Configure the cell...
+    city = [self.cities objectAtIndex:indexPath.row];
+    
+    NSLog(@"%@ %@",city.name, [DateFormater ConvertFromEpoch:city.currentWeather.date toFormat:@"HH:mm"]);
+    cell.timeLabe.text = [NSString stringWithFormat:@"%@",[DateFormater ConvertFromEpoch:city.currentWeather.date toFormat:@"HH:mm"]];
+    cell.cityNameLabel.text = [NSString stringWithFormat:@"%@",city.name];
+    cell.cityTempLabel.text = [NSString stringWithFormat:@"%@",city.currentWeather.currentTemp];
+
     
     return cell;
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSLog(@"Row is - > %ld",(long)indexPath.row);
+    cityIndex = indexPath.row;
+    NSLog(@"CityIndex is - > %ld",(long)cityIndex);
+    
+    
+    
+//    [self CloseModal];
+}
 
 
 /*
@@ -76,5 +100,17 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)closeBtn:(UIButton *)sender {
+    cityIndex = 0;
+    NSLog(@"CityIndex is - > %ld",(long)cityIndex);
+    [self CloseModal];
+    
+}
+
+-(void)CloseModal {
+
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 
 @end

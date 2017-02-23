@@ -8,6 +8,9 @@
 
 #import "MainViewController.h"
 #import "APIManager.h"
+#import "LocationManager.h"
+#import "LocationClass.h"
+#import "TabelUiViewController.h"
 
 @interface MainViewController () {
     NSMutableArray* _citiesRequest;
@@ -28,11 +31,18 @@ NSString *tst = @"ForTest";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSDictionary *location = [[LocationManager shartedManager] getCurrentLocation];
+    
     _cities = [[NSMutableArray alloc]init];
     
     _citiesRequest = [NSMutableArray arrayWithObjects:@{@"q":@"Prague"},@{@"q":@"London"},@{@"q":@"Barcelona"}, nil];
     
-    NSDictionary *requestOption = @{@"q":@"Lviv"};
+    NSDictionary *requestOption = [NSDictionary dictionaryWithDictionary:location];
+    
+//    NSDictionary *requestOption = @{@"q":@"Lviv"};
+    
+//    NSDictionary *requestOption = @{@"lat":location.lat,@"lon":location.lon};
+    
     
     [_citiesRequest addObject:requestOption];
     
@@ -73,7 +83,17 @@ NSString *tst = @"ForTest";
     NSLog(@"CITIES -> %@",_cities);
 }
 
-
+- (void)viewWillAppear:(BOOL)animated {
+    
+    NSLog(@"Will Apear");
+    TabelUiViewController *tableView = [[TabelUiViewController alloc]init];
+    DataPassDelegate* getIndex = [[DataPassDelegate alloc]init];
+    getIndex.delegate = tableView;
+    
+    
+    NSLog(@"from Delegate %lu",(unsigned long)[tableView PassIndex]);
+    
+}
 
 -(void) CreatePageViewWithData {
     
@@ -103,7 +123,9 @@ NSString *tst = @"ForTest";
 }
 
 
--(NSArray *)PassData {
+
+
+-(id)PassData {
     
     NSLog(@"Ruuned in MAinView Delegate Method cities Request is %@ and %@", _citiesRequest,tst);
     
@@ -188,7 +210,17 @@ NSString *tst = @"ForTest";
 }
 
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"toTable"]){
+        
+        NSLog(@"Cities -> %@",_cities);
+        
+        TabelUiViewController *tableView = [segue destinationViewController];
+        tableView.cities = _cities;
+    }
 
+}
 
 
 /*
